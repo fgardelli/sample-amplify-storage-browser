@@ -1,7 +1,7 @@
 import { defineStorage } from '@aws-amplify/backend';
 
 export const storage = defineStorage({
-  name: 'myStorageBucket',
+  name: 'mystoragebuckets3browser202511',
   isDefault: true,
    access: (allow) => ({
     'public/*': [
@@ -19,7 +19,7 @@ export const storage = defineStorage({
 });
 
 export const secondaryStorage = defineStorage({
-  name: 'mySecondaryStorageBucket',
+  name: 'amplifywebsiteblog202503',
    access: (allow) => ({
     'backup_public/*': [
         allow.guest.to(['read', 'write']),
