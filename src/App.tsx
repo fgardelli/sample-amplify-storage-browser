@@ -36,32 +36,20 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Authenticator>
-        {({ signOut, user }) => {
-          useEffect(() => {
-            if (user) {
-              getUserAttributes();
-            }
-          }, [user]);
-
-          const displayName = userAttributes?.name && userAttributes?.family_name 
-            ? `${userAttributes.name} ${userAttributes.family_name}`
-            : user?.signInDetails?.loginId || user?.username;
-
-          return (
-            <>
-              <div className="header">
-                <img src="/logo.png" alt="Logo" style={{ height: '200px', marginRight: '1rem' }} />
-                <h1>{`Hello ${displayName}`}</h1>
-                <Button onClick={signOut}>Sign out</Button>
-              </div>
-              <div style={{ padding: '2rem' }}>
-                <h1>My WINDTRE Storage</h1>
-                <p>Managing files in your secure storage buckets</p>
-                <StorageBrowser />
-              </div>
-            </>
-          );
-        }}
+        {({ signOut, user }) => (
+          <>
+            <div className="header">
+              <img src="/logo.jpg" alt="Logo" style={{ height: '40px', marginRight: '1rem' }} />
+              <h1>{`Hello ${user?.username}`}</h1>
+              <Button onClick={signOut}>Sign out</Button>
+            </div>
+            <div style={{ padding: '2rem' }}>
+              <h1>My Document Storage</h1>
+              <p>Managing files in your secure storage buckets</p>
+              <StorageBrowser />
+            </div>
+          </>
+        )}
       </Authenticator>
     </ThemeProvider>
   );
