@@ -12,6 +12,12 @@ Amplify.configure(config);
 
 const { StorageBrowser } = createStorageBrowser({
   config: createAmplifyAuthAdapter(),
+  displayName: {
+    buckets: {
+      'amplify-d20kfamzf7sixp-ma-mystoragebuckets3browser-hfb6lgmm0hsw': 'Main Storage',
+      'amplify-d20kfamzf7sixp-ma-amplifywebsiteblog202503-rgtsrr1acrxf': 'Backup Storage'
+    }
+  }
 });
 
 const theme = createTheme({
