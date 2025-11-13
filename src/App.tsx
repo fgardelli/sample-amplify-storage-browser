@@ -7,26 +7,33 @@ import './App.css';
 
 import config from '../amplify_outputs.json';
 import { Amplify } from 'aws-amplify';
-import { Authenticator, Button } from '@aws-amplify/ui-react';
+import { Authenticator, Button, ThemeProvider, createTheme } from '@aws-amplify/ui-react';
 Amplify.configure(config);
 
 const { StorageBrowser } = createStorageBrowser({
   config: createAmplifyAuthAdapter(),
 });
 
+const theme = createTheme({
+  name: 'custom-theme'
+});
+
 function App() {
   return (
-    <Authenticator>
-      {({ signOut, user }) => (
-        <>
-          <div className="header">
-            <h1>{`Hello ${user?.username}`}</h1>
-            <Button onClick={signOut}>Sign out</Button>
-          </div>
-          <StorageBrowser />
-        </>
-      )}
-    </Authenticator>
+    <ThemeProvider theme={theme}>
+      <Authenticator>
+        {({ signOut, user }) => (
+          <>
+            <div className="header">
+              <img src="/logo.jpg" alt="Logo" style={{ height: '40px', marginRight: '1rem' }} />
+              <h1>{`Hello ${user?.username}`}</h1>
+              <Button onClick={signOut}>Sign out</Button>
+            </div>
+            <StorageBrowser />
+          </>
+        )}
+      </Authenticator>
+    </ThemeProvider>
   );
 }
 
