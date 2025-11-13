@@ -40,7 +40,7 @@ function App() {
           <>
             <div className="header">
               <img src="/logo.jpg" alt="Logo" style={{ height: '40px', marginRight: '1rem' }} />
-              <h1>{`Hello ${user?.username}`}</h1>
+              <h1>{`Hello ${user?.signInDetails?.loginId || user?.username}`}</h1>
               <Button onClick={signOut}>Sign out</Button>
             </div>
             <div style={{ padding: '2rem' }}>
