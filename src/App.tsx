@@ -10,7 +10,7 @@ import { Amplify } from 'aws-amplify';
 import { Authenticator, Button, ThemeProvider, createTheme } from '@aws-amplify/ui-react';
 import { fetchUserAttributes } from 'aws-amplify/auth';
 import { useEffect, useState } from 'react';
-import type { AuthUser, UserAttributeKey } from 'aws-amplify/auth';
+import type { UserAttributeKey } from 'aws-amplify/auth';
 Amplify.configure(config);
 
 const { StorageBrowser } = createStorageBrowser({
