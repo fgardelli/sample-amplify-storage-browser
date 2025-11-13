@@ -25,12 +25,12 @@ function App() {
         {({ signOut, user }) => (
           <>
             <div className="header">
-              <img src="/logo.jpg" alt="Logo" style={{ height: '40px', marginRight: '1rem' }} />
+              <img src="/logo.png" alt="Logo" style={{ height: '40px', marginRight: '1rem' }} />
               <h1>{`Hello ${user?.signInDetails?.loginId || user?.username}`}</h1>
               <Button onClick={signOut}>Sign out</Button>
             </div>
             <div style={{ padding: '2rem' }}>
-              <h1>My Document Storage</h1>
+              <h1>My WINDTRE Storage</h1>
               <p>Managing files in your secure storage buckets</p>
               <StorageBrowser />
             </div>
