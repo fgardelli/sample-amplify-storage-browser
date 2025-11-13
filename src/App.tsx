@@ -12,12 +12,6 @@ Amplify.configure(config);
 
 const { StorageBrowser } = createStorageBrowser({
   config: createAmplifyAuthAdapter(),
-  displayName: {
-    buckets: {
-      'amplify-d20kfamzf7sixp-ma-mystoragebuckets3browser-hfb6lgmm0hsw': 'Main Storage',
-      'amplify-d20kfamzf7sixp-ma-amplifywebsiteblog202503-rgtsrr1acrxf': 'Backup Storage'
-    }
-  }
 });
 
 const theme = createTheme({
@@ -35,7 +29,11 @@ function App() {
               <h1>{`Hello ${user?.username}`}</h1>
               <Button onClick={signOut}>Sign out</Button>
             </div>
-            <StorageBrowser />
+            <div style={{ padding: '2rem' }}>
+              <h1>My Document Storage</h1>
+              <p>Managing files in your secure storage buckets</p>
+              <StorageBrowser />
+            </div>
           </>
         )}
       </Authenticator>
